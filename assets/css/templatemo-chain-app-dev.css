@@ -275,6 +275,15 @@ body {
   background: linear-gradient(100deg, rgba(216, 169, 63, 1) 0%, rgba(221, 168, 49, 1) 100%);
 }
 
+@media screen and (max-width: 768px) {
+  .gradient-button {
+    /* Override styles for mobile */
+    /* Example: Remove gradient and apply a solid color */
+    background: #0a0c10; /* Example: solid color */
+    /* Add other mobile-specific styles as needed */
+  }
+}
+
 .border-button a {
   display: inline-block !important;
   padding: 10px 20px !important;
@@ -1731,10 +1740,12 @@ PopUp
 }
 
 .popupContainer {
+  overflow-y: auto;
   display: none;
   background-color: #121212; /* Red background */
   border-radius: 30px; /* Slightly rounded corners */
-  width: 50%; /* Adjust the width as needed */
+  width: 80%; /* Adjust the width as needed */
+  max-height: 80%;
   margin: auto; /* Center the popup */
   padding: 20px; /* Padding inside the popup */
 }
@@ -1791,7 +1802,7 @@ a.btn_red {
   padding: 10px 20px;
   border-bottom: 1px solid #2D2D2D; /* Thin bottom border */
   font-weight: bold;
-  font-size: 24px; /* Larger text for the title */
+  font-size: 1.3rem; /* Larger text for the title */
   color: #F4C241;
 }
 
@@ -1806,10 +1817,11 @@ a.btn_red {
 }
 
 .popupBody {
-  background-color: transparent; /* Red background for the body */
+  background-color: transparent;
   padding: 20px;
-  border-radius: 10px; /* Slightly rounded corners */
-  color: #e8e8e8; /* White text color */
+  border-radius: 10px;
+  color: #e8e8e8;
+  max-height: 30%;
 }
 
 .centeredText {
@@ -2311,7 +2323,7 @@ section {
   position: fixed;
   top: 0;
   left: 0;
-  width: 70%;
+  width: 80%;
   height: 80%;
   z-index: 1000; /* Adjust based on your needs */
   overflow-y: auto; /* Enable scrolling on the modal */
