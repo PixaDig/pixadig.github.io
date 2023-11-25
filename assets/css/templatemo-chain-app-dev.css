@@ -1743,7 +1743,7 @@ PopUp
   overflow-y: auto;
   display: none;
   background-color: #121212; /* Red background */
-  border-radius: 30px; /* Slightly rounded corners */
+  border-radius: 8px; /* Slightly rounded corners */
   width: 80%; /* Adjust the width as needed */
   max-height: 80%;
   margin: auto; /* Center the popup */
