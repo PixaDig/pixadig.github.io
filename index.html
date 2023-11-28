@@ -12,18 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-	  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-609CTESCCT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-609CTESCCT');
-</script>
-
-
     <title>PixaDig</title>
 
     <!-- Bootstrap core CSS -->
@@ -111,6 +99,109 @@ https://templatemo.com/tm-570-chain-app-dev
                     <h2>Tap. Dig. <span class="earn-custom-color">Earn.</span></h2>
                     <p>Unlock the potential to earn real money with just one tap! <br>PixaDig offers a unique way to earn tokens through one simple daily activity. While there's potential for financial reward, we focus on fun and community. <br><br>Intrigued? Discover how tapping can turn into earning.</p>
                   </div>
+
+
+<!-- Email Capture Form Start -->
+<div class="email-capture-form" style="margin: 20px 0; text-align: left;">
+  <form action="https://formspree.io/f/xbjvvaok" method="POST" style="max-width: 600px;">
+    <label for="email" style="font-weight: bold; font-size: larger; margin-bottom: 5px; margin-left: 25px; color: #f4c241;">Stay updated!</label>
+    <div style="position: relative; border-radius: 12px; box-shadow: 2px 2px 4px rgba(0, 5, 5, 0.3);">
+      <input id="email" type="email" name="email" placeholder="example@email.com" 
+             style="width: 100%; padding: 12px; padding-right: 55px;
+                    border-radius: 12px; color: white;">
+      <button type="submit" 
+              style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); 
+                     border: none; background: url('assets/images/email_send_icon.png') no-repeat center / contain; 
+                     width: 25px; height: 25px; background-color: transparent; cursor: pointer;">
+      </button>
+    </div>
+    <p id="form-feedback" style="margin-top: 10px; height: 20px;"></p>
+  </form>
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector('.email-capture-form form');
+    const emailInput = document.getElementById('email');
+    const formFeedback = document.getElementById('form-feedback');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from redirecting
+
+      // AJAX request to Formspree
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://formspree.io/f/xbjvvaok', true);
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState !== XMLHttpRequest.DONE) return;
+
+        if (xhr.status === 200) {
+          emailInput.style.borderColor = 'green'; // Valid input
+          formFeedback.innerHTML = '<strong>Email successfully submitted!</strong>';
+          formFeedback.style.color = 'green';
+          fadeInOut(formFeedback);
+        } else {
+          emailInput.style.borderColor = 'red'; // Invalid input
+          formFeedback.innerHTML = '<strong>Error in email submission.</strong>';
+          formFeedback.style.color = 'red';
+          fadeInOut(formFeedback);
+        }
+      };
+      var formData = new FormData(form);
+      xhr.send(formData);
+    });
+
+    emailInput.addEventListener('focus', function() {
+      emailInput.style.borderColor = '#f4ea99'; // Focus state
+    });
+
+    emailInput.addEventListener('blur', function() {
+      if (!emailInput.value) {
+        emailInput.style.borderColor = 'white'; // Default state
+      }
+    });
+
+    function fadeInOut(element) {
+      element.style.opacity = 0;
+      var last = +new Date();
+      var fadeTick = function() {
+        element.style.opacity = +element.style.opacity + (new Date() - last) / 400;
+        last = +new Date();
+
+        if (+element.style.opacity < 1) {
+          (window.requestAnimationFrame && requestAnimationFrame(fadeTick)) || setTimeout(fadeTick, 16);
+        } else {
+          setTimeout(function() {
+            fadeOut(element);
+          }, 2000);
+        }
+      };
+      fadeTick();
+    }
+
+    function fadeOut(element) {
+      var fadeEffect = setInterval(function () {
+        if (!element.style.opacity) {
+          element.style.opacity = 1;
+        }
+        if (element.style.opacity > 0) {
+          element.style.opacity -= 0.1;
+        } else {
+          clearInterval(fadeEffect);
+        }
+      }, 50);
+    }
+  });
+</script>
+
+
+
+<!-- Email Capture Form End -->
+
+
+
+
                   <div class="col-lg-12">
                     <div class="white-button first-button scroll-to-section">
                       <a href="#contact">Coming Soon<i class="fab fa-apple"></i></a>
