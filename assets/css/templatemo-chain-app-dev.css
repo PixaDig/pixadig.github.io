@@ -951,7 +951,7 @@ Banner Style
 }
 
 .main-banner .left-content p {
-  margin-bottom: 45px;
+  margin-bottom: 25px;
   color: #f9f9f9;
   font-weight: 400;
 }
@@ -2398,3 +2398,80 @@ section {
   pointer-events: none;
   cursor: pointer;
 }
+
+
+
+
+/* Email Capture Form Styles */
+.email-capture-form {
+  text-align: left;
+}
+
+.email-capture-form div {
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 3px 3px 6px rgba(0, 5, 5, 0.5);
+}
+
+.email-capture-form input[type="email"] {
+  width: 100%;
+  padding: 15px;
+  padding-right: 55px;
+  background-color: rgba(1, 1, 1, 0.8);
+  border-radius: 12px;
+  color: white;
+  border: 2px solid white; /* Default white border */
+}
+
+.email-capture-form input[type="email"]:focus {
+  outline: none;
+  background-color: rgba(1, 1, 1, 0.8);
+  border: 2px solid #f4ea99; /* Purple border on focus */
+}
+
+
+/* Adjustments for the send button */
+.email-capture-form button {
+  position: absolute;
+  right: 10px; /* Adjusted for better alignment */
+  top: 50%;
+  transform: translateY(-50%);
+  border: none !important;
+  background: url('assets/images/email_send_icon.png') no-repeat center / contain;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Responsive Design for Mobile Devices */
+@media screen and (max-width: 768px) {
+  .email-capture-form form {
+    width: 90%;
+    margin: 0 auto; /* Center the form within its container */
+  }
+
+  .email-capture-form label, .email-capture-form p {
+    text-align: center; /* Center align the label and feedback message */
+    margin-left: 0; /* Reset any left margin */
+  }
+
+  .email-capture-form div {
+    margin: 0 auto; /* Center align the div containing the input and button */
+    max-width: 600px; /* Adjust the max-width as needed */
+  }
+
+  .email-capture-form input[type="email"], .email-capture-form button {
+    width: calc(100% - 30px); /* Adjust the width to fit the container */
+    position: relative; /* Change position to relative */
+    right: auto; /* Reset the right positioning */
+    top: auto;
+    transform: none;
+  }
+
+  .email-capture-form button {
+    margin-left: -45px; /* Adjust the button position relative to the input */
+  }
+}
+
+
